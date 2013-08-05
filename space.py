@@ -5,17 +5,23 @@ class Celestial(object):
     def __init__(self, x, y):
         self.x = float(x)
         self.y = float(y)
-        self.name = 'C{0}'.format(random.randint(1111, 9999))
 
 
 class Star(Celestial):
-    pass
+    def __init__(self, x, y):
+        self.name = 'Star{0}'.format(random.randint(1111, 9999))
+
+
+class Planet(Celestial):
+    def __init__(self, x, y):
+        self.name = 'Planet{0}'.format(random.randint(1111, 9999))
 
 
 class System(Celestial):
     def __init__(self):
         self.star = Star(0, 0)
         self.objects = []
+        self.name = 'System{0}'.format(random.randint(1111, 9999))
 
 
 class Sector(object):
