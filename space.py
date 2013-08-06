@@ -9,11 +9,13 @@ class Celestial(object):
 
 class Star(Celestial):
     def __init__(self, x, y):
+        Celestial.__init__(self, x, y)
         self.name = 'Star{0}'.format(random.randint(1111, 9999))
 
 
 class Planet(Celestial):
     def __init__(self, x, y):
+        Celestial.__init__(self, x, y)
         self.name = 'Planet{0}'.format(random.randint(1111, 9999))
 
 
