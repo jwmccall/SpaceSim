@@ -19,10 +19,10 @@ def run(stdscr):
     #statuswin.refresh()
 
     s = space.System()
-    s.objects.append(space.Celestial(x=100, y=275))
-    s.objects.append(space.Celestial(x=200, y=500))
-    s.objects.append(space.Celestial(x=20000, y=1700))
-    s.objects.append(space.Celestial(x=5400, y=2500))
+    s.objects.append(space.Planet(x=100, y=275))
+    s.objects.append(space.Planet(x=200, y=500))
+    s.objects.append(space.Planet(x=20000, y=1700))
+    s.objects.append(space.Planet(x=5400, y=2500))
     main_view.system = s
     overview.system = s
     main_view.display()
