@@ -1,5 +1,8 @@
 import curses
 
+NORMAL = curses.A_NORMAL
+HILITE = curses.A_STANDOUT
+
 
 class View(object):
     def __init__(self, x, y, width, height):
@@ -87,10 +90,13 @@ class OverView(View):
     def display(self):
         line = 0
         for i in self.system.objects:
-            self.window.addstr(line, 0, '{0}:{1},{2}'.format(i.name, i.x, i.y))
+            self.add_line(line, '{0}:{1},{2}'.format(i.name, i.x, i.y))
             line += 1
         self.highlight()
         self.window.refresh()
+
+    def add_line(self, row, string, attr=NORMAL):
+        self.window.addstr(row, 0, string, attr)
 
     def selection_up(self):
         if self.selection > 0:
@@ -109,4 +115,4 @@ class OverView(View):
     def highlight(self):
         l = 0 + self.selection
         o = self.system.objects[self.selection]
-        self.window.addstr(l, 0, '{0}:{1},{2}'.format(o.name, o.x, o.y), curses.A_STANDOUT)
+        self.add_line(l, '{0}:{1},{2}'.format(o.name, o.x, o.y), HILITE)
